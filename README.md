@@ -1,6 +1,18 @@
 # HostDeck · 环境窗口
 
-Windows Chrome 的固定 IP 环境工具。内置两条示例规则；首次使用请在「管理」中换成你有权访问的域名和 IP：
+Windows Chrome 的固定 IP 环境工具。
+
+**[下载 HostDeck v1.3.0 Windows x64 安装包](https://github.com/jyongli/hostdeck/releases/download/v1.3.0/HostDeck-1.3.0-win-x64.zip)**（Windows 10/11，无需编译）
+
+## 首次安装
+
+1. 下载 ZIP，完整解压到固定文件夹，双击 `安装.cmd` 注册本机助手。
+2. 打开 Chrome 的 `chrome://extensions/`，开启「开发者模式」，点击「加载已解压的扩展程序」，选择包里的 `extension` 文件夹。
+3. 打开 HostDeck →「管理」，将示例域名 `oa.example.test` 和示例 IP `192.0.2.10`、`192.0.2.20` 换成自己的域名和 IP，再保存。
+
+安装后请保留解压目录。可以把 HostDeck 固定到工具栏；弹窗底部显示「本机助手已连接」即表示安装成功。
+
+内置两条示例规则：
 
 | 环境 | 固定 IP |
 | --- | --- |
@@ -19,11 +31,7 @@ A/B 只用于区分 IP，没有假定哪个是测试或正式。点击「管理�
 2. 在更新后的目录重新运行「安装.cmd」，让 Chrome 找到新的助手程序。
 3. 在 `chrome://extensions/` 重新加载扩展，确认弹窗底部显示 **1.3.0**。保持扩展安装位置、环境标识与域名/IP 规则时，会继续使用原来的配置和独立窗口登录目录。
 
-## 首次安装
-
-1. 将完整 `HostDeck-1.3.0-win-x64.zip` 解压到长期保留的普通文件夹，双击「安装.cmd」。助手直接注册在解压目录中，无需管理员；使用期间不要移动或删除文件夹。
-2. Chrome 地址栏输入 `chrome://extensions/`，开启「开发者模式」，点击「加载已解压的扩展程序」，选择解压目录中的 `extension` 文件夹。
-3. 在工具栏固定 **HostDeck · 分页环境**。弹窗底部显示「本机助手已连接」表示连接成功。
+## 安装说明与兼容性
 
 若旧的 `%LOCALAPPDATA%\HostDeck\App\extension` 路径显示「位置不可用」，请使用上述解压目录。打包应用可能重定向 AppData；安装脚本已使用原地注册，避免向 Explorer 和 Chrome 发布这种路径别名。
 
