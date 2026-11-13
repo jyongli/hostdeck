@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HostDeck · 环境管理</title><link rel="stylesheet" href="style.css"></head>
+<body><main class="workspace">
+  <header class="brand"><div class="mark" aria-hidden="true">H</div><div><h1>环境管理</h1><p>HostDeck · 为每个环境保存自己的解析规则</p></div></header>
+  <p class="intro">先选择一个环境，填写域名与目标 IP。不同环境分别在独立 Chrome 窗口中打开，各自保存网站登录。内置的 A/B 名称不代表测试或正式，请按实际用途修改。</p>
+  <div class="editor-grid"><aside class="card sidebar"><nav id="list" aria-label="环境列表"></nav><button id="add" class="quiet">＋ 新建环境</button></aside>
+    <form id="editor" class="card editor">
+      <label class="field">环境名称<input id="name" maxlength="40" required autocomplete="off"></label>
+      <label class="field">识别颜色<input id="color" type="color"></label>
+      <label class="field">Hosts 解析规则<textarea id="hosts" spellcheck="false" required placeholder="192.0.2.10 oa.example.test"></textarea><div class="hint">每行填写「IP 域名」，支持 IPv4、IPv6 和 # 注释。域名使用完整英文名称；一个环境最多 32 条规则。</div></label>
+      <div id="message" class="notice" role="status" aria-live="polite"></div>
+      <div class="editor-bottom"><button type="button" id="delete" class="quiet danger">删除此环境</button><button type="submit" class="primary">保存环境</button></div>
+    </form>
+  </div>
+  <details class="help"><summary>登录隔离与账户资料</summary>
+    <p><strong>独立窗口</strong>适合日常测试、文件上传、实时功能和需要不同账号的场景。它使用独立 Chrome 配置，保持域名和 HTTPS 证书校验，并直连网络。依赖公司代理才能访问的网络可能无法直连。</p>
+    <p>需要原网站登录时，先关闭目标环境窗口，在原 Chrome 的已登录网页上选择「带入网站登录」。它复制该网站的 Cookie 及当前页 localStorage / sessionStorage，可能替换同名数据。服务器不接受原凭据、分区 Cookie 或登录依赖 IndexedDB 时仍需重新登录。Chrome 密码、书签和自动填充请点「同步 Chrome 资料」，在环境窗口登录原 Google 账户，由 Chrome 同步。</p>
+    <p>修改解析规则会打开新的隔离配置，以免旧进程继续使用旧 IP；旧窗口不会自动更改，请关闭不再使用的窗口。旧登录数据保留在本机。</p>
+    <p><strong>当前标签切换已停用。</strong>同一 Chrome 配置中的同域名标签共享 Cookie 和 localStorage，一个环境清理登录会影响另一个。IP 分流不能提供登录隔离。升级前请先停止旧接管或关闭旧业务标签，之后对 HostDeck 点击重新加载。</p>
+    <p>独立窗口的浏览器存储互相隔离；若网站服务端本身限制同时登录或主动撤销凭据，仍可能要求重新登录，插件不能改变服务端规则。</p>
+    <p>「带入网站登录」会短暂显示 Chrome 调试提示，读取后立即解除，不持续拦截网络。完全退出 Chrome 后用工具目录的「隐藏调试提示启动Chrome.cmd」启动，可隐藏本次所有扩展的调试提示，并沿用原 Chrome 配置。</p>
+    <p>不修改系统 hosts、DNS 或代理，不安装证书、不关闭 HTTPS 校验。没有遥测或网页内容日志。只有主动复制的网站登录数据通过本机匿名管道交给随包助手；Chrome 账户同步由浏览器自身完成。</p>
+  </details>
+  <script type="module" src="options.mjs"></script>
+</main></body></html>

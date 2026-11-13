@@ -1,0 +1,7 @@
+dist/
+output/
+node_modules/
+native/runtime/
+native/HostDeckBridge.exe
+native/HostDeck.exe
+native/cn.hostdeck.bridge.json

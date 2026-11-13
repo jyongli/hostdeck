@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HostDeck</title><link rel="stylesheet" href="style.css"></head>
+<body class="popup">
+  <header class="brand"><div class="mark" aria-hidden="true">H</div><div><h1>HostDeck</h1><p>同一域名，自选环境</p></div><button id="settings" class="quiet" aria-label="管理环境">管理</button></header>
+  <p class="label">当前页面</p><div id="domain" class="domain">读取中…</div>
+  <p class="notice">同域名的环境需要分开窗口保存登录。当前标签切换已停用，避免两个网页相互退出登录。</p>
+  <main id="environments" aria-label="解析环境"></main>
+  <div id="message" class="notice" role="status" aria-live="polite"></div>
+  <details class="popup-help"><summary>账户资料与网站登录</summary><p>两个环境使用独立的 Chrome 登录存储。密码、书签和自动填充请点「同步 Chrome 资料」，在环境窗口登录原 Google 账户。带入网站登录前请关闭目标环境窗口；服务器不接受原登录时，仍需分别重新登录。</p></details>
+  <details class="popup-help"><summary>隐藏顶部调试提示</summary><p>先退出全部 Chrome 窗口，再双击工具目录中的「隐藏调试提示启动Chrome.cmd」。该入口沿用原 Chrome 账户资料；本次启动的其他扩展调试提示也会一并隐藏。</p></details>
+  <footer class="footer"><span id="connection" class="connection"><i class="dot"></i><span>检查本机助手…</span></span><span id="version"></span></footer>
+  <script type="module" src="popup.mjs"></script>
+</body></html>

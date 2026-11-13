@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "HostDeck · 分页环境",
+  "version": "1.3.0",
+  "description": "为不同 IP 环境打开使用独立登录存储的 Chrome 窗口，支持带入网站登录和打开 Chrome 资料同步。",
+  "minimum_chrome_version": "125",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5o0r5V3+7aXmev5xKVcbnJxCMizlILVKSesar7BNhHE/zKDs0aGBgHLAyp5vbbabRWNn2b5fKBI0RqvQNosdSDhF/P+a0RGfXlB6d4mQ4ddK2SIBgiDKQyERcADVXnQUhOsQufNs3lei2/8PqMhLXvQ3qioIWmUR1IT+nRcv0E1MxSodKkou2tqLfPfTGB64Dbdk6K+Jt3bLkyRsDTLrsDaARW3MpWstopTmV0RCfgxiXHrkpGhn7ir6Kdvo6PXZtjvwJfvSVIycEO2m6h3Kg1AmCd+VMNGJRT0/6l+rFEJNzB0ndAWLdf3RJ3KnwUPyJzabHBwquVfS81Lh0Btu+QIDAQAB",
+  "permissions": ["storage", "tabs", "nativeMessaging", "debugger"],
+  "background": { "service_worker": "background.mjs", "type": "module" },
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "action": { "default_popup": "popup.html", "default_title": "HostDeck · 选择解析环境" },
+  "options_page": "options.html"
+}
